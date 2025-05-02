@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>确认您的邮箱</title>
+  <style>
+    /* 重置样式，确保在各邮件客户端中一致显示 */
+    body, div, p, h1, h2, h3, h4, h5, h6 {
+      margin: 0;
+      padding: 0;
+    }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+      background-color: #f8f9fa !important; 
+      color: #333; 
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px;
+      width: 100% !important;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+    table {
+      border-spacing: 0;
+      border-collapse: collapse;
+      mso-table-lspace: 0pt;
+      mso-table-rspace: 0pt;
+    }
+    table, td {
+      border: 0;
+    }
+    img {
+      border: 0;
+      height: auto;
+      line-height: 100%;
+      outline: none;
+      text-decoration: none;
+      -ms-interpolation-mode: bicubic;
+    }
+    .container { 
+      max-width: 550px; 
+      margin: 0 auto; 
+      background-color: #ffffff; 
+      border-radius: 12px; 
+      padding: 40px; 
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .logo {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 20px;
+      display: block;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+    h2 { 
+      color: #1a1a1a; 
+      font-size: 24px;
+      font-weight: 600;
+      margin-top: 0;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    p { 
+      margin-bottom: 16px; 
+      color: #4a4a4a;
+    }
+    .btn-container {
+      text-align: center;
+      margin: 32px 0;
+    }
+    .btn { 
+      display: inline-block; 
+      padding: 14px 32px; 
+      background-color: #0f172b; 
+      color: #ffffff !important; 
+      border-radius: 6px; 
+      text-decoration: none; 
+      font-weight: 600;
+      font-size: 16px;
+    }
+    .otp-container {
+      text-align: center;
+      margin: 24px 0;
+    }
+    .otp-label {
+      font-size: 14px;
+      color: #666666;
+      margin-bottom: 12px;
+    }
+    .otp { 
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #f1f5f9;
+      border: 1px dashed #0f172b;
+      border-radius: 8px;
+      font-size: 24px; 
+      letter-spacing: 6px; 
+      font-weight: bold; 
+      color: #0f172b; 
+    }
+    .link-container {
+      background-color: #f8f9fa;
+      border-radius: 6px;
+      padding: 16px;
+      margin-top: 24px;
+      word-break: break-all;
+      font-size: 14px;
+    }
+    .footer { 
+      margin-top: 40px; 
+      padding-top: 20px;
+      border-top: 1px solid #eaeaea;
+      font-size: 13px; 
+      color: #888888; 
+      text-align: center;
+    }
+    .footer p {
+      margin: 8px 0;
+      color: #888888;
+    }
+    @media screen and (max-width: 600px) {
+      .container {
+        padding: 30px 20px;
+        width: 100% !important;
+      }
+    }
+  </style>
+</head>
+<body bgcolor="#f8f9fa">
+  <table role="presentation" cellpadding="0" cellspacing="0" width="100%" bgcolor="#f8f9fa">
+    <tr>
+      <td align="center" style="padding: 20px 0;">
+        <!-- 外层表格添加边框和阴影效果 -->
+        <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="max-width: 550px; border-collapse: separate; border-spacing: 0; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); background-color: #ffffff;">
+          <tr>
+            <td style="padding: 40px; background-color: #ffffff; border-radius: 12px;">
+              <!-- 头部 -->
+              <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                  <td align="center" style="padding-bottom: 30px;">
+                    <table role="presentation" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td align="center" style="padding-bottom: 20px;">
+                          <img src="https://p26-passport.byteacctimg.com/img/user-avatar/4e52ee9576b06d3f4469b7c7a57ee395~300x300.image" width="80" height="80" style="border-radius: 50%; display: block;" alt="Logo">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="center">
+                          <h2 style="color: #1a1a1a; font-size: 24px; font-weight: 600; margin-top: 0; margin-bottom: 24px;">确认您的邮箱</h2>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+              
+              <!-- 内容 -->
+              <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                  <td>
+                    <p style="margin-bottom: 16px; color: #4a4a4a;">您好{{ if .Email }} {{ .Email }}{{ end }}，</p>
+                    <p style="margin-bottom: 16px; color: #4a4a4a;">感谢您注册我们的服务。请点击下方按钮确认您的邮箱地址，以完成注册流程。</p>
+                  </td>
+                </tr>
+                
+                <!-- 按钮 -->
+                <tr>
+                  <td align="center" style="padding: 32px 0;">
+                    <table role="presentation" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td align="center" bgcolor="#0f172b" style="border-radius: 6px;">
+                          <a href="{{ .ConfirmationURL }}" target="_blank" style="display: inline-block; padding: 14px 32px; font-family: sans-serif; font-size: 16px; color: #ffffff; text-decoration: none; font-weight: 600;">确认邮箱</a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                
+                <!-- 验证码 -->
+                <tr>
+                  <td align="center" style="padding: 24px 0;">
+                    <p style="font-size: 14px; color: #666666; margin-bottom: 12px;">或者，您也可以在注册页面输入以下验证码：</p>
+                    <div style="display: inline-block; padding: 12px 24px; background-color: #f1f5f9; border: 1px dashed #0f172b; border-radius: 8px; font-size: 24px; letter-spacing: 6px; font-weight: bold; color: #0f172b;">{{ .Token }}</div>
+                  </td>
+                </tr>
+                
+                <!-- 链接 -->
+                <tr>
+                  <td style="background-color: #f8f9fa; border-radius: 6px; padding: 16px; margin-top: 24px; word-break: break-all; font-size: 14px;">
+                    <p style="margin-top: 0; margin-bottom: 8px; color: #4a4a4a;">如果按钮无法点击，请复制以下链接到浏览器打开：</p>
+                    <a href="{{ .ConfirmationURL }}" style="color: #0f172b; text-decoration: underline; word-break: break-all;">{{ .ConfirmationURL }}</a>
+                  </td>
+                </tr>
+                
+                <!-- 页脚 -->
+                <tr>
+                  <td style="padding-top: 40px; border-top: 1px solid #eaeaea; margin-top: 40px; text-align: center;">
+                    <p style="margin: 8px 0; font-size: 13px; color: #888888;">此链接将在24小时后失效。如果您未注册此账户，请忽略此邮件。</p>
+                    <p style="margin: 8px 0; font-size: 13px; color: #888888;">© 2025 <a href="{{ .SiteURL }}" style="color: #888888; text-decoration: none; font-weight: 800;">Joi Inc.</a>  保留所有权利。</p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
