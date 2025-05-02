@@ -151,7 +151,7 @@
                       </tr>
                       <tr>
                         <td align="center">
-                          <h2 style="color: #1a1a1a; font-size: 24px; font-weight: 600; margin-top: 0; margin-bottom: 24px;">邀请您加入</h2>
+                          <h2 style="color: #1a1a1a; font-size: 24px; font-weight: 600; margin-top: 0; margin-bottom: 24px;">您已被邀请</h2>
                         </td>
                       </tr>
                     </table>
@@ -164,7 +164,7 @@
                 <tr>
                   <td>
                     <p style="margin-bottom: 16px; color: #4a4a4a;">您好{{ if .Email }} {{ .Email }}{{ end }}，</p>
-                    <p style="margin-bottom: 16px; color: #4a4a4a;">您收到此邮件是因为{{ if .Data.invited_by }}{{ .Data.invited_by }}{{ else }}有人{{ end }}邀请您加入{{ if .Data.organization }}{{ .Data.organization }}{{ else }}他们的团队{{ end }}。请点击下方按钮接受邀请并设置您的账户。</p>
+                    <p style="margin-bottom: 16px; color: #4a4a4a;">您已被邀请在 {{ .SiteURL }} 创建用户账户。请点击下方链接接受邀请：</p>
                   </td>
                 </tr>
                 
