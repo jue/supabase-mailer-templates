@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="{{ if eq .Language "zh-CN" }}zh-CN{{ else }}en{{ end }}">
+<html lang="{{ if eq .language "zh-CN" }}zh-CN{{ else }}en{{ end }}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ if eq .Language "zh-CN" }}一键登录链接{{ else }}Magic Link{{ end }}</title>
+  <title>{{ if eq .language "zh-CN" }}一键登录链接{{ else }}Magic Link{{ end }}</title>
   <style>
     /* 重置样式，确保在各邮件客户端中一致显示 */
     body, div, p, h1, h2, h3, h4, h5, h6 {
@@ -151,7 +151,7 @@
                       </tr>
                       <tr>
                         <td align="center">
-                          <h2 style="color: #1a1a1a; font-size: 24px; font-weight: 600; margin-top: 0; margin-bottom: 24px;">{{ if eq .Language "zh-CN" }}一键登录链接{{ else }}Magic Link{{ end }}</h2>
+                          <h2 style="color: #1a1a1a; font-size: 24px; font-weight: 600; margin-top: 0; margin-bottom: 24px;">{{ if eq .language "zh-CN" }}一键登录链接{{ else }}Magic Link{{ end }}</h2>
                         </td>
                       </tr>
                     </table>
@@ -163,8 +163,8 @@
               <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
                 <tr>
                   <td>
-                    <p style="margin-bottom: 16px; color: #4a4a4a;">{{ if eq .Language "zh-CN" }}您好{{ if .Email }} {{ .Email }}{{ end }}，{{ else }}Hello{{ if .Email }} {{ .Email }}{{ end }},{{ end }}</p>
-                    <p style="margin-bottom: 16px; color: #4a4a4a;">{{ if eq .Language "zh-CN" }}感谢您使用我们的服务。为了确保您的账户安全，我们需要验证您的身份。{{ else }}Thank you for using our service. To ensure your account security, we need to verify your identity.{{ end }}</p>
+                    <p style="margin-bottom: 16px; color: #4a4a4a;">{{ if eq .language "zh-CN" }}您好{{ if .Email }} {{ .Email }}{{ end }}，{{ else }}Hello{{ if .Email }} {{ .Email }}{{ end }},{{ end }}</p>
+                    <p style="margin-bottom: 16px; color: #4a4a4a;">{{ if eq .language "zh-CN" }}感谢您使用我们的服务。为了确保您的账户安全，我们需要验证您的身份。{{ else }}Thank you for using our service. To ensure your account security, we need to verify your identity.{{ end }}</p>
                   </td>
                 </tr>
                 
@@ -174,7 +174,7 @@
                     <table role="presentation" cellpadding="0" cellspacing="0">
                       <tr>
                         <td align="center" bgcolor="#0f172b" style="border-radius: 6px;">
-                          <a href="{{ .ConfirmationURL }}" target="_blank" style="display: inline-block; padding: 14px 32px; font-family: sans-serif; font-size: 16px; color: #ffffff; text-decoration: none; font-weight: 600;">{{ if eq .Language "zh-CN" }}立即登录{{ else }}Login Now{{ end }}</a>
+                          <a href="{{ .ConfirmationURL }}" target="_blank" style="display: inline-block; padding: 14px 32px; font-family: sans-serif; font-size: 16px; color: #ffffff; text-decoration: none; font-weight: 600;">{{ if eq .language "zh-CN" }}立即登录{{ else }}Login Now{{ end }}</a>
                         </td>
                       </tr>
                     </table>
@@ -184,7 +184,7 @@
                 <!-- 验证码 -->
                 <tr>
                   <td align="center" style="padding: 24px 0;">
-                    <p style="font-size: 14px; color: #666666; margin-bottom: 12px;">{{ if eq .Language "zh-CN" }}或者，您也可以在登录页面输入以下验证码：{{ else }}Or, you can enter the following verification code on the login page:{{ end }}</p>
+                    <p style="font-size: 14px; color: #666666; margin-bottom: 12px;">{{ if eq .language "zh-CN" }}或者，您也可以在登录页面输入以下验证码：{{ else }}Or, you can enter the following verification code on the login page:{{ end }}</p>
                     <div style="display: inline-block; padding: 12px 24px; background-color: #f1f5f9; border: 1px dashed #0f172b; border-radius: 8px; font-size: 24px; letter-spacing: 6px; font-weight: bold; color: #0f172b;">{{ .Token }}</div>
                   </td>
                 </tr>
@@ -192,7 +192,7 @@
                 <!-- 链接 -->
                 <tr>
                   <td style="background-color: #f8f9fa; border-radius: 6px; padding: 16px; margin-top: 24px; word-break: break-all; font-size: 14px;">
-                    <p style="margin-top: 0; margin-bottom: 8px; color: #4a4a4a;">{{ if eq .Language "zh-CN" }}如果按钮无法点击，请复制以下链接到浏览器打开：{{ else }}If the button doesn't work, please copy and paste the following link into your browser:{{ end }}</p>
+                    <p style="margin-top: 0; margin-bottom: 8px; color: #4a4a4a;">{{ if eq .language "zh-CN" }}如果按钮无法点击，请复制以下链接到浏览器打开：{{ else }}If the button doesn't work, please copy and paste the following link into your browser:{{ end }}</p>
                     <a href="{{ .ConfirmationURL }}" style="color: #0f172b; text-decoration: underline; word-break: break-all;">{{ .ConfirmationURL }}</a>
                   </td>
                 </tr>
@@ -200,8 +200,8 @@
                 <!-- 页脚 -->
                 <tr>
                   <td style="padding-top: 40px; border-top: 1px solid #eaeaea; margin-top: 40px; text-align: center;">
-                    <p style="margin: 8px 0; font-size: 13px; color: #888888;">{{ if eq .Language "zh-CN" }}此链接将在24小时后失效。如果您未请求此邮件，请忽略。{{ else }}This link will expire in 24 hours. If you did not request this email, please ignore it.{{ end }}</p>
-                    <p style="margin: 8px 0; font-size: 13px; color: #888888;">© 2025 <a href="https://jue.sh" style="color: #888888; text-decoration: none; font-weight: 800;">Joi Inc.</a> {{ if eq .Language "zh-CN" }}保留所有权利。{{ else }}All rights reserved.{{ end }}</p>
+                    <p style="margin: 8px 0; font-size: 13px; color: #888888;">{{ if eq .language "zh-CN" }}此链接将在24小时后失效。如果您未请求此邮件，请忽略。{{ else }}This link will expire in 24 hours. If you did not request this email, please ignore it.{{ end }}</p>
+                    <p style="margin: 8px 0; font-size: 13px; color: #888888;">© 2025 <a href="https://jue.sh" style="color: #888888; text-decoration: none; font-weight: 800;">Joi Inc.</a> {{ if eq .language "zh-CN" }}保留所有权利。{{ else }}All rights reserved.{{ end }}</p>
                   </td>
                 </tr>
               </table>
