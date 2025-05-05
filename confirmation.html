@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ if eq .Language "zh-CN" }}确认您的邮箱// - {{.Language}}{{ else }}Confirm Your Email// - {{.Language}}{{ end }}</title>
+  <title>{{ if eq .Language "zh-CN" }}BIMGO 确认您的邮箱{{ else }}BIMGO Confirm Your Email{{ end }}</title>
   <style>
     /* 重置样式，确保在各邮件客户端中一致显示 */
     body, div, p, h1, h2, h3, h4, h5, h6 {
@@ -151,7 +151,7 @@
                       </tr>
                       <tr>
                         <td align="center">
-                          <h2 style="color: #1a1a1a; font-size: 24px; font-weight: 600; margin-top: 0; margin-bottom: 24px;">///----{{ if eq .Language "zh-CN" }}确认您的邮箱{{ else }}Confirm Your Email{{ end }}</h2>
+                          <h2 style="color: #1a1a1a; font-size: 24px; font-weight: 600; margin-top: 0; margin-bottom: 24px;">{{.Language}} - {{ if eq .Language "zh-CN" }}确认您的邮箱{{ else }}Confirm Your Email{{ end }}</h2>
                         </td>
                       </tr>
                     </table>
