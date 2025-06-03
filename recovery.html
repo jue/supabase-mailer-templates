@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="{{ if eq .Data.Locale "zh-CN" }}zh-CN{{ else }}en{{ end }}">
+<html lang="{{ if eq .Data.locale "zh-CN" }}zh-CN{{ else }}en{{ end }}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ if eq .Data.Locale "zh-CN" }}重置您的密码{{ else }}Reset Your Password{{ end }}</title>
+  <title>{{ if eq .Data.locale "zh-CN" }}重置您的密码{{ else }}Reset Your Password{{ end }}</title>
   <style>
     /* 重置样式，确保在各邮件客户端中一致显示 */
     body, div, p, h1, h2, h3, h4, h5, h6 {
@@ -126,12 +126,12 @@
                     <table role="presentation" cellpadding="0" cellspacing="0">
                       <tr>
                         <td align="center" style="padding-bottom: 20px;">
-                          <img src="data:image/jpeg;base64,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" width="80" height="80" style="border-radius: 50%; display: block;" alt="Logo">
+                          <img src="https://p26-passport.byteacctimg.com/img/user-avatar/4e52ee9576b06d3f4469b7c7a57ee395~300x300.image" width="80" height="80" style="border-radius: 50%; display: block;" alt="Logo">
                         </td>
                       </tr>
                       <tr>
                         <td align="center">
-                          <h2 style="color: #1a1a1a; font-size: 24px; font-weight: 600; margin-top: 0; margin-bottom: 24px;">{{ if eq .Data.Locale "zh-CN" }}重置您的密码{{ else }}Reset Your Password{{ end }}</h2>
+                          <h2 style="color: #1a1a1a; font-size: 24px; font-weight: 600; margin-top: 0; margin-bottom: 24px;">{{ if eq .Data.locale "zh-CN" }}重置您的密码{{ else }}Reset Your Password{{ end }}</h2>
                         </td>
                       </tr>
                     </table>
@@ -143,8 +143,8 @@
               <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
                 <tr>
                   <td>
-                    <p style="margin-bottom: 16px; color: #4a4a4a;">{{ if eq .Data.Locale "zh-CN" }}您好{{ if .Email }} {{ .Email }}{{ end }}，{{ else }}Hello{{ if .Email }} {{ .Email }}{{ end }},{{ end }}</p>
-                    <p style="margin-bottom: 16px; color: #4a4a4a;">{{ if eq .Data.Locale "zh-CN" }}我们收到了重置您账户密码的请求。{{ else }}We received a request to reset the password for your account.{{ end }}</p>
+                    <p style="margin-bottom: 16px; color: #4a4a4a;">{{ if eq .Data.locale "zh-CN" }}您好{{ if .Email }} {{ .Email }}{{ end }}，{{ else }}Hello{{ if .Email }} {{ .Email }}{{ end }},{{ end }}</p>
+                    <p style="margin-bottom: 16px; color: #4a4a4a;">{{ if eq .Data.locale "zh-CN" }}我们收到了重置您账户密码的请求。{{ else }}We received a request to reset the password for your account.{{ end }}</p>
                   </td>
                 </tr>
                 
@@ -154,7 +154,7 @@
                     <table role="presentation" cellpadding="0" cellspacing="0">
                       <tr>
                         <td align="center" bgcolor="#0f172b" style="border-radius: 6px;">
-                          <a href="{{ .ConfirmationURL }}" target="_blank" style="display: inline-block; padding: 14px 32px; font-family: sans-serif; font-size: 16px; color: #ffffff; text-decoration: none; font-weight: 600;">{{ if eq .Data.Locale "zh-CN" }}重置密码{{ else }}Reset Password{{ end }}</a>
+                          <a href="{{ .ConfirmationURL }}" target="_blank" style="display: inline-block; padding: 14px 32px; font-family: sans-serif; font-size: 16px; color: #ffffff; text-decoration: none; font-weight: 600;">{{ if eq .Data.locale "zh-CN" }}重置密码{{ else }}Reset Password{{ end }}</a>
                         </td>
                       </tr>
                     </table>
@@ -164,7 +164,7 @@
                 <!-- 链接 -->
                 <tr>
                   <td style="background-color: #f8f9fa; border-radius: 6px; padding: 16px; margin-top: 24px; word-break: break-all; font-size: 14px;">
-                    <p style="margin-top: 0; margin-bottom: 8px; color: #4a4a4a;">{{ if eq .Data.Locale "zh-CN" }}如果按钮无法点击，请复制以下链接到浏览器打开：{{ else }}If the button doesn't work, please copy and paste the following link into your browser:{{ end }}</p>
+                    <p style="margin-top: 0; margin-bottom: 8px; color: #4a4a4a;">{{ if eq .Data.locale "zh-CN" }}如果按钮无法点击，请复制以下链接到浏览器打开：{{ else }}If the button doesn't work, please copy and paste the following link into your browser:{{ end }}</p>
                     <a href="{{ .ConfirmationURL }}" style="color: #0f172b; text-decoration: underline; word-break: break-all;">{{ .ConfirmationURL }}</a>
                   </td>
                 </tr>
@@ -172,8 +172,8 @@
                 <!-- 页脚 -->
                 <tr>
                   <td style="padding-top: 40px; border-top: 1px solid #eaeaea; margin-top: 40px; text-align: center;">
-                    <p style="margin: 8px 0; font-size: 13px; color: #888888;">{{ if eq .Data.Locale "zh-CN" }}此链接将在15分钟后失效。如果您没有请求重置密码，您可以安全地忽略此邮件。可能是有人错误地输入了您的邮箱地址。{{ else }}This link expires in 15 minutes. If you didn't request to reset your password, you can safely ignore this email. Someone else might have typed your email address by mistake.{{ end }}</p>
-                    <p style="margin: 8px 0; font-size: 13px; color: #888888;">© 2025 <a href="{{ .SiteURL }}" style="color: #888888; text-decoration: none; font-weight: 800;">Joi Inc.</a> {{ if eq .Data.Locale "zh-CN" }}保留所有权利。{{ else }}All rights reserved.{{ end }}</p>
+                    <p style="margin: 8px 0; font-size: 13px; color: #888888;">{{ if eq .Data.locale "zh-CN" }}此链接将在15分钟后失效。如果您没有请求重置密码，您可以安全地忽略此邮件。可能是有人错误地输入了您的邮箱地址。{{ else }}This link expires in 15 minutes. If you didn't request to reset your password, you can safely ignore this email. Someone else might have typed your email address by mistake.{{ end }}</p>
+                    <p style="margin: 8px 0; font-size: 13px; color: #888888;">© 2025 <a href="{{ .SiteURL }}" style="color: #888888; text-decoration: none; font-weight: 800;">Joi Inc.</a> {{ if eq .Data.locale "zh-CN" }}保留所有权利。{{ else }}All rights reserved.{{ end }}</p>
                   </td>
                 </tr>
               </table>
