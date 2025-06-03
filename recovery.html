@@ -193,7 +193,7 @@
                 <tr>
                   <td style="background-color: #f8f9fa; border-radius: 6px; padding: 16px; margin-top: 24px; word-break: break-all; font-size: 14px;">
                     <p style="margin-top: 0; margin-bottom: 8px; color: #4a4a4a;">{{ if eq .Data.Locale "zh-CN" }}如果按钮无法点击，请复制以下链接到浏览器打开：{{ else }}If the button doesn't work, please copy and paste the following link into your browser:{{ end }}</p>
-                    <a href="{{ .ConfirmationURL }}" style="color: #0f172b; text-decoration: underline; word-break: break-all;">{{ .ConfirmationURL }}</a>
+                    <a href="{{ .RedirectTo }}/auth/confirm?token_hash={{ .TokenHash }}&type=email" style="color: #0f172b; text-decoration: underline; word-break: break-all;">{{ .ConfirmationURL }}</a>
                   </td>
                 </tr>
                 
