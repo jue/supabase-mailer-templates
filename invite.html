@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="{{ if eq .Data.Locale "zh-CN" }}zh-CN{{ else }}en{{ end }}">
+<html lang="{{ if eq .Data.locale "zh-CN" }}zh-CN{{ else }}en{{ end }}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ if eq .Data.Locale "zh-CN" }}邀请加入{{ else }}Invitation{{ end }}</title>
+  <title>{{ if eq .Data.locale "zh-CN" }}邀请加入{{ else }}Invitation{{ end }}</title>
   <style>
     /* 重置样式，确保在各邮件客户端中一致显示 */
     body, div, p, h1, h2, h3, h4, h5, h6 {
@@ -151,7 +151,7 @@
                       </tr>
                       <tr>
                         <td align="center">
-                          <h2 style="color: #1a1a1a; font-size: 24px; font-weight: 600; margin-top: 0; margin-bottom: 24px;">{{ if eq .Data.Locale "zh-CN" }}您已被邀请{{ else }}You've Been Invited{{ end }}</h2>
+                          <h2 style="color: #1a1a1a; font-size: 24px; font-weight: 600; margin-top: 0; margin-bottom: 24px;">{{ if eq .Data.locale "zh-CN" }}您已被邀请{{ else }}You've Been Invited{{ end }}</h2>
                         </td>
                       </tr>
                     </table>
@@ -163,8 +163,8 @@
               <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
                 <tr>
                   <td>
-                    <p style="margin-bottom: 16px; color: #4a4a4a;">{{ if eq .Data.Locale "zh-CN" }}您好{{ if .Email }} {{ .Email }}{{ end }}，{{ else }}Hello{{ if .Email }} {{ .Email }}{{ end }},{{ end }}</p>
-                    <p style="margin-bottom: 16px; color: #4a4a4a;">{{ if eq .Data.Locale "zh-CN" }}您已被邀请在 {{ .SiteURL }} 创建用户账户。请点击下方链接接受邀请：{{ else }}You have been invited to create a user account on {{ .SiteURL }}. Please click the link below to accept the invitation:{{ end }}</p>
+                    <p style="margin-bottom: 16px; color: #4a4a4a;">{{ if eq .Data.locale "zh-CN" }}您好{{ if .Email }} {{ .Email }}{{ end }}，{{ else }}Hello{{ if .Email }} {{ .Email }}{{ end }},{{ end }}</p>
+                    <p style="margin-bottom: 16px; color: #4a4a4a;">{{ if eq .Data.locale "zh-CN" }}您已被邀请在 {{ .SiteURL }} 创建用户账户。请点击下方链接接受邀请：{{ else }}You have been invited to create a user account on {{ .SiteURL }}. Please click the link below to accept the invitation:{{ end }}</p>
                   </td>
                 </tr>
                 
@@ -174,7 +174,7 @@
                     <table role="presentation" cellpadding="0" cellspacing="0">
                       <tr>
                         <td align="center" bgcolor="#0f172b" style="border-radius: 6px;">
-                          <a href="{{ .ConfirmationURL }}" target="_blank" style="display: inline-block; padding: 14px 32px; font-family: sans-serif; font-size: 16px; color: #ffffff; text-decoration: none; font-weight: 600;">{{ if eq .Data.Locale "zh-CN" }}接受邀请{{ else }}Accept Invitation{{ end }}</a>
+                          <a href="{{ .ConfirmationURL }}" target="_blank" style="display: inline-block; padding: 14px 32px; font-family: sans-serif; font-size: 16px; color: #ffffff; text-decoration: none; font-weight: 600;">{{ if eq .Data.locale "zh-CN" }}接受邀请{{ else }}Accept Invitation{{ end }}</a>
                         </td>
                       </tr>
                     </table>
@@ -184,7 +184,7 @@
                 <!-- 链接 -->
                 <tr>
                   <td style="background-color: #f8f9fa; border-radius: 6px; padding: 16px; margin-top: 24px; word-break: break-all; font-size: 14px;">
-                    <p style="margin-top: 0; margin-bottom: 8px; color: #4a4a4a;">{{ if eq .Data.Locale "zh-CN" }}如果按钮无法点击，请复制以下链接到浏览器打开：{{ else }}If the button doesn't work, please copy and paste the following link into your browser:{{ end }}</p>
+                    <p style="margin-top: 0; margin-bottom: 8px; color: #4a4a4a;">{{ if eq .Data.locale "zh-CN" }}如果按钮无法点击，请复制以下链接到浏览器打开：{{ else }}If the button doesn't work, please copy and paste the following link into your browser:{{ end }}</p>
                     <a href="{{ .ConfirmationURL }}" style="color: #0f172b; text-decoration: underline; word-break: break-all;">{{ .ConfirmationURL }}</a>
                   </td>
                 </tr>
@@ -192,8 +192,8 @@
                 <!-- 页脚 -->
                 <tr>
                   <td style="padding-top: 40px; border-top: 1px solid #eaeaea; margin-top: 40px; text-align: center;">
-                    <p style="margin: 8px 0; font-size: 13px; color: #888888;">{{ if eq .Data.Locale "zh-CN" }}此邀请将在24小时后失效。如果您未预期收到此邮件，请忽略。{{ else }}This invitation will expire in 24 hours. If you did not expect this email, please ignore it.{{ end }}</p>
-                    <p style="margin: 8px 0; font-size: 13px; color: #888888;">© 2025 <a href="{{ .SiteURL }}" style="color: #888888; text-decoration: none; font-weight: 800;">Joi Inc.</a> {{ if eq .Data.Locale "zh-CN" }}保留所有权利。{{ else }}All rights reserved.{{ end }}</p>
+                    <p style="margin: 8px 0; font-size: 13px; color: #888888;">{{ if eq .Data.locale "zh-CN" }}此邀请将在24小时后失效。如果您未预期收到此邮件，请忽略。{{ else }}This invitation will expire in 24 hours. If you did not expect this email, please ignore it.{{ end }}</p>
+                    <p style="margin: 8px 0; font-size: 13px; color: #888888;">© 2025 <a href="{{ .SiteURL }}" style="color: #888888; text-decoration: none; font-weight: 800;">Joi Inc.</a> {{ if eq .Data.locale "zh-CN" }}保留所有权利。{{ else }}All rights reserved.{{ end }}</p>
                   </td>
                 </tr>
               </table>
