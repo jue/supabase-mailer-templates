@@ -154,7 +154,7 @@
                     <table role="presentation" cellpadding="0" cellspacing="0">
                       <tr>
                         <td align="center" bgcolor="#0f172b" style="border-radius: 6px;">
-                          <a href="{{ .ConfirmationURL }}" target="_blank" style="display: inline-block; padding: 14px 32px; font-family: sans-serif; font-size: 16px; color: #ffffff; text-decoration: none; font-weight: 600;">{{ if eq .Data.locale "zh-CN" }}重置密码{{ else }}Reset Password{{ end }}</a>
+                          <a href="{{ .SiteURL }}/reset-password?token={{ .TokenHash }}&type=recovery" target="_blank" style="display: inline-block; padding: 14px 32px; font-family: sans-serif; font-size: 16px; color: #ffffff; text-decoration: none; font-weight: 600;">{{ if eq .Data.locale "zh-CN" }}重置密码{{ else }}Reset Password{{ end }}</a>
                         </td>
                       </tr>
                     </table>
@@ -165,7 +165,7 @@
                 <tr>
                   <td style="background-color: #f8f9fa; border-radius: 6px; padding: 16px; margin-top: 24px; word-break: break-all; font-size: 14px;">
                     <p style="margin-top: 0; margin-bottom: 8px; color: #4a4a4a;">{{ if eq .Data.locale "zh-CN" }}如果按钮无法点击，请复制以下链接到浏览器打开：{{ else }}If the button doesn't work, please copy and paste the following link into your browser:{{ end }}</p>
-                    <a href="{{ .ConfirmationURL }}" style="color: #0f172b; text-decoration: underline; word-break: break-all;">{{ .ConfirmationURL }}</a>
+                    <a href="{{ .SiteURL }}/reset-password?token={{ .TokenHash }}&type=recovery" style="color: #0f172b; text-decoration: underline; word-break: break-all;">{{ .SiteURL }}/reset-password?token={{ .TokenHash }}&type=recovery</a>
                   </td>
                 </tr>
                 
