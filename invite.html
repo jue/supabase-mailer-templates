@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="x-apple-disable-message-reformatting">
+  <meta name="color-scheme" content="light dark">
+  <meta name="supported-color-schemes" content="light dark">
   <title>{{ if eq .Data.locale "zh-CN" }}邀请加入{{ else }}Invitation{{ end }}</title>
   <style>
     /* 重置样式，确保在各邮件客户端中一致显示 */
@@ -146,7 +150,7 @@
                     <table role="presentation" cellpadding="0" cellspacing="0">
                       <tr>
                         <td align="center" style="padding-bottom: 20px;">
-                          <img src="https://p26-passport.byteacctimg.com/img/user-avatar/4e52ee9576b06d3f4469b7c7a57ee395~300x300.image" width="80" height="80" style="border-radius: 50%; display: block;" alt="Logo">
+                          <img src="{{ .SiteURL }}/images/logo.png" width="80" height="80" style="border-radius: 50%; display: block;" alt="Logo">
                         </td>
                       </tr>
                       <tr>
@@ -193,7 +197,9 @@
                 <tr>
                   <td style="padding-top: 40px; border-top: 1px solid #eaeaea; margin-top: 40px; text-align: center;">
                     <p style="margin: 8px 0; font-size: 13px; color: #888888;">{{ if eq .Data.locale "zh-CN" }}此邀请将在24小时后失效。如果您未预期收到此邮件，请忽略。{{ else }}This invitation will expire in 24 hours. If you did not expect this email, please ignore it.{{ end }}</p>
-                    <p style="margin: 8px 0; font-size: 13px; color: #888888;">© 2025 <a href="{{ .SiteURL }}" style="color: #888888; text-decoration: none; font-weight: 800;">Joi Inc.</a> {{ if eq .Data.locale "zh-CN" }}保留所有权利。{{ else }}All rights reserved.{{ end }}</p>
+                    <p style="margin: 8px 0; font-size: 13px; color: #888888;">{{ if eq .Data.locale "zh-CN" }}此邮件已通过SPF/DKIM验证，确保由我们的服务器发送。{{ else }}This email has been verified by SPF/DKIM to be sent from our servers.{{ end }}</p>
+                    <p style="margin: 8px 0; font-size: 13px; color: #888888;">© {{ .CurrentYear }} <a href="{{ .SiteURL }}" style="color: #888888; text-decoration: none; font-weight: 600;">Joi Inc.</a> {{ if eq .Data.locale "zh-CN" }}保留所有权利。{{ else }}All rights reserved.{{ end }}</p>
+                    <p style="margin: 8px 0; font-size: 13px; color: #888888;">{{ if eq .Data.locale "zh-CN" }}<a href="{{ .SiteURL }}/unsubscribe?email={{ .Email }}" style="color: #888888;">取消订阅</a>{{ else }}<a href="{{ .SiteURL }}/unsubscribe?email={{ .Email }}" style="color: #888888;">Unsubscribe</a>{{ end }}</p>
                   </td>
                 </tr>
               </table>
