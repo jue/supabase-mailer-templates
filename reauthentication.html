@@ -7,7 +7,7 @@
   <meta name="x-apple-disable-message-reformatting">
   <meta name="color-scheme" content="light dark">
   <meta name="supported-color-schemes" content="light dark">
-  <title>{{ if eq .Data.locale "zh-CN" }}登录验证{{ else }}Login Verification{{ end }}</title>
+  <title>{{ if eq .Data.locale "zh-CN" }}安全验证{{ else }}Security Verification{{ end }}</title>
   <style>
     /* 重置样式，确保在各邮件客户端中一致显示 */
     body, div, p, h1, h2, h3, h4, h5, h6 {
@@ -70,7 +70,7 @@
                       </tr>
                       <tr>
                         <td align="center">
-                          <h2 style="color: #1a1a1a; font-size: 24px; font-weight: 600; margin-top: 0; margin-bottom: 24px;">{{ if eq .Data.locale "zh-CN" }}登录验证{{ else }}Login Verification{{ end }}</h2>
+                          <h2 style="color: #1a1a1a; font-size: 24px; font-weight: 600; margin-top: 0; margin-bottom: 24px;">{{ if eq .Data.locale "zh-CN" }}安全验证{{ else }}Security Verification{{ end }}</h2>
                         </td>
                       </tr>
                     </table>
@@ -83,43 +83,22 @@
                 <tr>
                   <td>
                     <p style="margin-bottom: 16px; color: #4a4a4a;">{{ if eq .Data.locale "zh-CN" }}您好{{ if .Email }} {{ .Email }}{{ end }}，{{ else }}Hello{{ if .Email }} {{ .Email }}{{ end }},{{ end }}</p>
-                    <p style="margin-bottom: 16px; color: #4a4a4a;">{{ if eq .Data.locale "zh-CN" }}请点击下方按钮一键登录您的账户。{{ else }}Click the button below to log in to your account.{{ end }}</p>
-                  </td>
-                </tr>
-                
-                <!-- 按钮 -->
-                <tr>
-                  <td align="center" style="padding: 32px 0;">
-                    <table role="presentation" cellpadding="0" cellspacing="0">
-                      <tr>
-                        <td align="center" bgcolor="#0f172b" style="border-radius: 6px;">
-                          <a href="{{ .ConfirmationURL }}" target="_blank" style="display: inline-block; padding: 14px 32px; font-family: sans-serif; font-size: 16px; color: #ffffff; text-decoration: none; font-weight: 600;">{{ if eq .Data.locale "zh-CN" }}一键登录{{ else }}Log In{{ end }}</a>
-                        </td>
-                      </tr>
-                    </table>
+                    <p style="margin-bottom: 16px; color: #4a4a4a;">{{ if eq .Data.locale "zh-CN" }}您正在执行敏感操作，为了确保您的账户安全，请输入以下验证码完成身份验证。{{ else }}You are performing a sensitive operation. To ensure your account security, please enter the following verification code to complete identity verification.{{ end }}</p>
                   </td>
                 </tr>
                 
                 <!-- 验证码 -->
                 <tr>
-                  <td align="center" style="padding: 24px 0;">
-                    <p style="font-size: 14px; color: #666666; margin-bottom: 12px;">{{ if eq .Data.locale "zh-CN" }}或者，您也可以在登录页面输入以下验证码：{{ else }}Or, enter the following verification code on the login page:{{ end }}</p>
-                    <div style="display: inline-block; padding: 12px 24px; background-color: #f1f5f9; border: 1px dashed #0f172b; border-radius: 8px; font-size: 24px; letter-spacing: 6px; font-weight: bold; color: #0f172b;">{{ .Token }}</div>
-                  </td>
-                </tr>
-                
-                <!-- 链接 -->
-                <tr>
-                  <td style="background-color: #f8f9fa; border-radius: 6px; padding: 16px; margin-top: 24px; word-break: break-all; font-size: 14px;">
-                    <p style="margin-top: 0; margin-bottom: 8px; color: #4a4a4a;">{{ if eq .Data.locale "zh-CN" }}如果按钮无法点击，请复制以下链接到浏览器打开：{{ else }}If the button doesn't work, please copy and paste the following link into your browser:{{ end }}</p>
-                    <a href="{{ .ConfirmationURL }}" style="color: #0f172b; text-decoration: underline; word-break: break-all;">{{ .ConfirmationURL }}</a>
+                  <td align="center" style="padding: 32px 0;">
+                    <p style="font-size: 14px; color: #666666; margin-bottom: 12px;">{{ if eq .Data.locale "zh-CN" }}您的验证码是：{{ else }}Your verification code is:{{ end }}</p>
+                    <div style="display: inline-block; padding: 16px 32px; background-color: #f1f5f9; border: 1px dashed #0f172b; border-radius: 8px; font-size: 28px; letter-spacing: 8px; font-weight: bold; color: #0f172b;">{{ .Token }}</div>
                   </td>
                 </tr>
                 
                 <!-- 页脚 -->
                 <tr>
                   <td style="padding-top: 40px; border-top: 1px solid #eaeaea; margin-top: 40px; text-align: center;">
-                    <p style="margin: 8px 0; font-size: 13px; color: #888888;">{{ if eq .Data.locale "zh-CN" }}此链接和验证码将在1小时后失效。如果您未请求此邮件，请忽略。{{ else }}This link and verification code will expire in 1 hour. If you did not request this email, please ignore it.{{ end }}</p>
+                    <p style="margin: 8px 0; font-size: 13px; color: #888888;">{{ if eq .Data.locale "zh-CN" }}此验证码将在10分钟后失效。如果您未请求此验证码，请立即修改密码以保护您的账户安全。{{ else }}This verification code will expire in 10 minutes. If you did not request this code, please change your password immediately to protect your account.{{ end }}</p>
                     <p style="margin: 8px 0; font-size: 13px; color: #888888;">{{ if eq .Data.locale "zh-CN" }}此邮件已通过SPF/DKIM验证，确保由我们的服务器发送。{{ else }}This email has been verified by SPF/DKIM to be sent from our servers.{{ end }}</p>
                     <p style="margin: 8px 0; font-size: 13px; color: #888888;">© {{ .CurrentYear }} <a href="{{ .SiteURL }}" style="color: #888888; text-decoration: none; font-weight: 600;">Joi Inc.</a> {{ if eq .Data.locale "zh-CN" }}保留所有权利。{{ else }}All rights reserved.{{ end }}</p>
                     <p style="margin: 8px 0; font-size: 13px; color: #888888;">{{ if eq .Data.locale "zh-CN" }}<a href="{{ .SiteURL }}/unsubscribe?email={{ .Email }}" style="color: #888888;">取消订阅</a>{{ else }}<a href="{{ .SiteURL }}/unsubscribe?email={{ .Email }}" style="color: #888888;">Unsubscribe</a>{{ end }}</p>

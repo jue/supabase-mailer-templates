@@ -42,72 +42,9 @@
       text-decoration: none;
       -ms-interpolation-mode: bicubic;
     }
-    .container { 
-      max-width: 550px; 
-      margin: 0 auto; 
-      background-color: #ffffff; 
-      border-radius: 12px; 
-      padding: 40px; 
-    }
-    .header {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    .logo {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto 20px;
-      display: block;
-      border-radius: 50%;
-      overflow: hidden;
-    }
-    h2 { 
-      color: #1a1a1a; 
-      font-size: 24px;
-      font-weight: 600;
-      margin-top: 0;
-      margin-bottom: 24px;
-      text-align: center;
-    }
-    p { 
-      margin-bottom: 16px; 
-      color: #4a4a4a;
-    }
-    .otp-container {
-      text-align: center;
-      margin: 24px 0;
-    }
-    .otp-label {
-      font-size: 14px;
-      color: #666666;
-      margin-bottom: 12px;
-    }
-    .otp { 
-      display: inline-block;
-      padding: 12px 24px;
-      background-color: #f1f5f9;
-      border: 1px dashed #0f172b;
-      border-radius: 8px;
-      font-size: 24px; 
-      letter-spacing: 6px; 
-      font-weight: bold; 
-      color: #0f172b; 
-    }
-    .footer { 
-      margin-top: 40px; 
-      padding-top: 20px;
-      border-top: 1px solid #eaeaea;
-      font-size: 13px; 
-      color: #888888; 
-      text-align: center;
-    }
-    .footer p {
-      margin: 8px 0;
-      color: #888888;
-    }
     @media screen and (max-width: 600px) {
       .container {
-        padding: 30px 20px;
+        padding: 30px 20px !important;
         width: 100% !important;
       }
     }
@@ -146,22 +83,43 @@
                 <tr>
                   <td>
                     <p style="margin-bottom: 16px; color: #4a4a4a;">{{ if eq .Data.locale "zh-CN" }}您好{{ if .Email }} {{ .Email }}{{ end }}，{{ else }}Hello{{ if .Email }} {{ .Email }}{{ end }},{{ end }}</p>
-                    <p style="margin-bottom: 16px; color: #4a4a4a;">{{ if eq .Data.locale "zh-CN" }}感谢您注册我们的服务。请使用下方验证码完成注册流程。{{ else }}Thank you for signing up. Please use the verification code below to complete the registration process.{{ end }}</p>
+                    <p style="margin-bottom: 16px; color: #4a4a4a;">{{ if eq .Data.locale "zh-CN" }}感谢您注册我们的服务。请点击下方按钮确认您的邮箱地址。{{ else }}Thank you for signing up. Please click the button below to confirm your email address.{{ end }}</p>
+                  </td>
+                </tr>
+                
+                <!-- 按钮 -->
+                <tr>
+                  <td align="center" style="padding: 32px 0;">
+                    <table role="presentation" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td align="center" bgcolor="#0f172b" style="border-radius: 6px;">
+                          <a href="{{ .ConfirmationURL }}" target="_blank" style="display: inline-block; padding: 14px 32px; font-family: sans-serif; font-size: 16px; color: #ffffff; text-decoration: none; font-weight: 600;">{{ if eq .Data.locale "zh-CN" }}确认邮箱{{ else }}Confirm Email{{ end }}</a>
+                        </td>
+                      </tr>
+                    </table>
                   </td>
                 </tr>
                 
                 <!-- 验证码 -->
                 <tr>
                   <td align="center" style="padding: 24px 0;">
-                    <p style="font-size: 14px; color: #666666; margin-bottom: 12px;">{{ if eq .Data.locale "zh-CN" }}您可以在注册页面输入以下验证码：{{ else }}You can enter the following verification code on the registration page:{{ end }}</p>
+                    <p style="font-size: 14px; color: #666666; margin-bottom: 12px;">{{ if eq .Data.locale "zh-CN" }}或者，您也可以在注册页面输入以下验证码：{{ else }}Or, enter the following verification code on the registration page:{{ end }}</p>
                     <div style="display: inline-block; padding: 12px 24px; background-color: #f1f5f9; border: 1px dashed #0f172b; border-radius: 8px; font-size: 24px; letter-spacing: 6px; font-weight: bold; color: #0f172b;">{{ .Token }}</div>
+                  </td>
+                </tr>
+                
+                <!-- 链接 -->
+                <tr>
+                  <td style="background-color: #f8f9fa; border-radius: 6px; padding: 16px; margin-top: 24px; word-break: break-all; font-size: 14px;">
+                    <p style="margin-top: 0; margin-bottom: 8px; color: #4a4a4a;">{{ if eq .Data.locale "zh-CN" }}如果按钮无法点击，请复制以下链接到浏览器打开：{{ else }}If the button doesn't work, please copy and paste the following link into your browser:{{ end }}</p>
+                    <a href="{{ .ConfirmationURL }}" style="color: #0f172b; text-decoration: underline; word-break: break-all;">{{ .ConfirmationURL }}</a>
                   </td>
                 </tr>
                 
                 <!-- 页脚 -->
                 <tr>
                   <td style="padding-top: 40px; border-top: 1px solid #eaeaea; margin-top: 40px; text-align: center;">
-                    <p style="margin: 8px 0; font-size: 13px; color: #888888;">{{ if eq .Data.locale "zh-CN" }}此验证码将在24小时后失效。如果您未注册此账户，请忽略此邮件。{{ else }}This verification code will expire in 24 hours. If you did not register this account, please ignore this email.{{ end }}</p>
+                    <p style="margin: 8px 0; font-size: 13px; color: #888888;">{{ if eq .Data.locale "zh-CN" }}此链接和验证码将在24小时后失效。如果您未注册此账户，请忽略此邮件。{{ else }}This link and verification code will expire in 24 hours. If you did not register this account, please ignore this email.{{ end }}</p>
                     <p style="margin: 8px 0; font-size: 13px; color: #888888;">{{ if eq .Data.locale "zh-CN" }}此邮件已通过SPF/DKIM验证，确保由我们的服务器发送。{{ else }}This email has been verified by SPF/DKIM to be sent from our servers.{{ end }}</p>
                     <p style="margin: 8px 0; font-size: 13px; color: #888888;">© {{ .CurrentYear }} <a href="{{ .SiteURL }}" style="color: #888888; text-decoration: none; font-weight: 600;">Joi Inc.</a> {{ if eq .Data.locale "zh-CN" }}保留所有权利。{{ else }}All rights reserved.{{ end }}</p>
                     <p style="margin: 8px 0; font-size: 13px; color: #888888;">{{ if eq .Data.locale "zh-CN" }}<a href="{{ .SiteURL }}/unsubscribe?email={{ .Email }}" style="color: #888888;">取消订阅</a>{{ else }}<a href="{{ .SiteURL }}/unsubscribe?email={{ .Email }}" style="color: #888888;">Unsubscribe</a>{{ end }}</p>

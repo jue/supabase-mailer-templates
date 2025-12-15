@@ -42,94 +42,9 @@
       text-decoration: none;
       -ms-interpolation-mode: bicubic;
     }
-    .container { 
-      max-width: 550px; 
-      margin: 0 auto; 
-      background-color: #ffffff; 
-      border-radius: 12px; 
-      padding: 40px; 
-    }
-    .header {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    .logo {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto 20px;
-      display: block;
-      border-radius: 50%;
-      overflow: hidden;
-    }
-    h2 { 
-      color: #1a1a1a; 
-      font-size: 24px;
-      font-weight: 600;
-      margin-top: 0;
-      margin-bottom: 24px;
-      text-align: center;
-    }
-    p { 
-      margin-bottom: 16px; 
-      color: #4a4a4a;
-    }
-    .btn-container {
-      text-align: center;
-      margin: 32px 0;
-    }
-    .btn { 
-      display: inline-block; 
-      padding: 14px 32px; 
-      background-color: #0f172b; 
-      color: #ffffff !important; 
-      border-radius: 6px; 
-      text-decoration: none; 
-      font-weight: 600;
-      font-size: 16px;
-    }
-    .otp-container {
-      text-align: center;
-      margin: 24px 0;
-    }
-    .otp-label {
-      font-size: 14px;
-      color: #666666;
-      margin-bottom: 12px;
-    }
-    .otp { 
-      display: inline-block;
-      padding: 12px 24px;
-      background-color: #f1f5f9;
-      border: 1px dashed #0f172b;
-      border-radius: 8px;
-      font-size: 24px; 
-      letter-spacing: 6px; 
-      font-weight: bold; 
-      color: #0f172b; 
-    }
-    .link-container {
-      background-color: #f8f9fa;
-      border-radius: 6px;
-      padding: 16px;
-      margin-top: 24px;
-      word-break: break-all;
-      font-size: 14px;
-    }
-    .footer { 
-      margin-top: 40px; 
-      padding-top: 20px;
-      border-top: 1px solid #eaeaea;
-      font-size: 13px; 
-      color: #888888; 
-      text-align: center;
-    }
-    .footer p {
-      margin: 8px 0;
-      color: #888888;
-    }
     @media screen and (max-width: 600px) {
       .container {
-        padding: 30px 20px;
+        padding: 30px 20px !important;
         width: 100% !important;
       }
     }
@@ -168,7 +83,7 @@
                 <tr>
                   <td>
                     <p style="margin-bottom: 16px; color: #4a4a4a;">{{ if eq .Data.locale "zh-CN" }}您好{{ if .Email }} {{ .Email }}{{ end }}，{{ else }}Hello{{ if .Email }} {{ .Email }}{{ end }},{{ end }}</p>
-                    <p style="margin-bottom: 16px; color: #4a4a4a;">{{ if eq .Data.locale "zh-CN" }}您已被邀请在 {{ .SiteURL }} 创建用户账户。请点击下方链接接受邀请：{{ else }}You have been invited to create a user account on {{ .SiteURL }}. Please click the link below to accept the invitation:{{ end }}</p>
+                    <p style="margin-bottom: 16px; color: #4a4a4a;">{{ if eq .Data.locale "zh-CN" }}您已被邀请加入我们的平台。请点击下方按钮接受邀请并创建您的账户。{{ else }}You have been invited to join our platform. Please click the button below to accept the invitation and create your account.{{ end }}</p>
                   </td>
                 </tr>
                 
